@@ -1,12 +1,17 @@
-import 'package:even_better/screens/forum/add_comment.dart';
-import 'package:even_better/screens/forum/detail_forum.dart';
-import 'package:even_better/screens/forum/models/forum_answer.dart' as fa;
-import 'package:even_better/screens/forum/models/tag.dart';
 import 'package:flutter/material.dart';
+import 'package:forum/forum/add_comment.dart';
+import 'package:forum/forum/models/forum_answer.dart';
+import 'package:forum/forum/models/tag.dart';
+import 'package:forum/forum/models/forum_answer.dart' as fa;
 
 class DetailedForum extends StatefulWidget {
+  List<Forum_Answer> comments;
+  DetailedForum({
+    required this.comments,
+    Key? key,
+  }) : super(key: key);
   @override
-  _DetailedForum createState() => _DetailedForum();
+  _DetailedForum createState() => _DetailedForum(comments);
 }
 
 // ------------------------------------------------------------
@@ -27,6 +32,9 @@ var tag_Project = Tag("Project", "");
 var tag_Work = Tag("Work", "");
 
 class _DetailedForum extends State<DetailedForum> {
+  List<Forum_Answer> comments;
+
+  _DetailedForum(this.comments);
   @override
   Widget build(BuildContext context) {
     var questionSection = Padding(
@@ -60,8 +68,8 @@ class _DetailedForum extends State<DetailedForum> {
         padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
           itemBuilder: (BuildContext context, int index) =>
-              fa.ForumAnswer(ForumSamplePost[index]),
-          itemCount: ForumSamplePost.length,
+              fa.ForumAnswer(comments[index]),
+          itemCount: comments.length,
         ));
     return Scaffold(
       appBar: AppBar(

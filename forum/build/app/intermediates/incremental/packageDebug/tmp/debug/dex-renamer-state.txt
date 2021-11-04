@@ -1,0 +1,4 @@
+#Thu Nov 04 17:00:59 EDT 2021
+base.0=C\:\\Users\\liuh8\\OneDrive - Rose-Hulman Institute of Technology\\Desktop\\Senior Proj\\git\\EvenBetterForum\\forum\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,9 +1,8 @@
-import 'package:even_better/screens/forum/create_forum.dart';
-import 'package:even_better/screens/forum/detail_forum.dart';
-import 'package:even_better/screens/forum/models/forum_answer.dart';
-import 'package:even_better/screens/forum/models/forum_post.dart' as fp;
-import 'package:even_better/screens/forum/models/tag.dart';
 import 'package:flutter/material.dart';
+import 'package:forum/forum/create_forum.dart';
+import 'package:forum/forum/models/forum_answer.dart';
+import 'package:forum/forum/models/forum_post.dart' as fp;
+import 'package:forum/forum/models/tag.dart';
 
 class ForumListPage extends StatefulWidget {
   @override

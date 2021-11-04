@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/forum.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,11 +11,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.pinkAccent[200],
-        dividerColor: Colors.pinkAccent[300],
+        primarySwatch: Colors.red,
       ),
       title: 'Even Better',
-      home: ForumList(),
+      home: ForumListPage(),
     );
   }
 }

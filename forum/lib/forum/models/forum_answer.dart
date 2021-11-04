@@ -37,7 +37,9 @@ class ForumAnswer extends StatelessWidget {
               color: Colors.red[300],
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0)),
+                  topRight: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0)),
             ),
             child: Row(
               children: <Widget>[

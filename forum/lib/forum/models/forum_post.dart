@@ -1,4 +1,4 @@
-import 'package:even_better/screens/forum/detail_forum.dart';
+import 'package:forum/forum/detail_forum.dart';
 
 import 'forum_answer.dart';
 import 'tag.dart';
@@ -57,7 +57,10 @@ class ForumPost extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DetailedForum()),
+            MaterialPageRoute(
+                builder: (context) => DetailedForum(
+                      comments: entry.answer,
+                    )),
           );
         },
       ),
