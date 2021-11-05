@@ -72,15 +72,19 @@ class ForumAnswer extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(left: 2.0, right: 2.0, bottom: 2.0),
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20.0),
-                    bottomRight: Radius.circular(20.0))),
-            child: Text(answers.text),
-          ),
+              margin: const EdgeInsets.only(left: 2.0, right: 2.0, bottom: 2.0),
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0))),
+              child: Container(
+                width: double.infinity,
+                child: Text(answers.text),
+              )),
         ],
       ),
     );

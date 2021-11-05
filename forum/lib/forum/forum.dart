@@ -43,7 +43,19 @@ class _ForumListPageState extends State<ForumListPage> {
               children: <Widget>[
                 Tag("OO Design", ""),
                 Tag("Java", ""),
-                Tag("...", "")
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          print("showing more tags");
+                        },
+                        child: const Text("···",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ],
@@ -53,13 +65,12 @@ class _ForumListPageState extends State<ForumListPage> {
   @override
   Widget build(BuildContext context) {
     var listItemsData = [
-      fp.Forum_Post(
-          "user1",
-          "forum1",
-          "title1",
-          "content1",
-          [Tag("Project", "")],
-          [Forum_Answer("answerid1", "poster1", "Hello")]),
+      fp.Forum_Post("user1", "forum1", "title1", "content1", [
+        Tag("Project", "")
+      ], [
+        Forum_Answer("answerid1", "poster1",
+            "Displays a Material dialog above the current contents of the app, with Material entrance and exit animations, modal barrier color, and modal barrier behavior (dialog is dismissible with a tap on the barrier).The barrierDismissible argument is used to indicate whether tapping on the barrier will dismiss the dialog. It is true by default and can not be null.")
+      ]),
       fp.Forum_Post(
           "user2",
           "forum2",
