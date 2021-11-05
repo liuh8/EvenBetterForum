@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/models/forum_post.dart';
 
 class Tag extends StatelessWidget {
   final String name;
-  List<String> tagged_forum = <String>[];
+  // List<String> tagged_forum = <String>[];
+  List<Forum_Post> tagged_forum = <Forum_Post>[];
   String set = "1";
 
   Tag(this.name, this.set) {
     // tagged_forum = <String>[];
     print("the tag with name ${name} is created [Tag]");
   }
+
   String get tagName {
     return "#" + name + " ";
   }
 
-  void addPost(String fid) {
+  // void addPost(String fid) {
+  //   tagged_forum.add(fid);
+  //   print("the forum post ${fid} is added to the tag ${name}");
+  // }
+
+  void addPost(Forum_Post fid) {
     tagged_forum.add(fid);
-    print("the forum post ${fid} is added to the tag ${name}");
+    print("the forum post is added to the tag ${name}");
   }
 
-  List<String> get post => tagged_forum;
+  // List<String> get post => tagged_forum;
 
   @override
   Widget build(BuildContext context) {

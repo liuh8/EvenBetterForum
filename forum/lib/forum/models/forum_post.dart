@@ -1,3 +1,4 @@
+import 'package:forum/forum/data.dart';
 import 'package:forum/forum/detail_forum.dart';
 
 import 'forum_answer.dart';
@@ -23,6 +24,18 @@ class Forum_Post {
 
   List<Tag> get tag => tags;
   List<Forum_Answer> get answer => answers;
+
+  String get tagNames {
+    String display = "";
+    for (Tag t in tags) {
+      display += t.tagName;
+    }
+    return display;
+  }
+
+  void add_comment(Forum_Answer answer) {
+    answers.add(answer);
+  }
 }
 
 class ForumPost extends StatelessWidget {
@@ -60,6 +73,7 @@ class ForumPost extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => DetailedForum(
                       comments: entry.answer,
+                      post: entry,
                     )),
           );
         },

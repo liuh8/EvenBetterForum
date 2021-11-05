@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:forum/forum/add_comment.dart';
 import 'package:forum/forum/models/forum_answer.dart';
+import 'package:forum/forum/models/forum_post.dart';
 import 'package:forum/forum/models/tag.dart';
 import 'package:forum/forum/models/forum_answer.dart' as fa;
 
 class DetailedForum extends StatefulWidget {
   List<Forum_Answer> comments;
+  Forum_Post post;
   DetailedForum({
     required this.comments,
+    required this.post,
     Key? key,
   }) : super(key: key);
   @override
-  _DetailedForum createState() => _DetailedForum(comments);
+  _DetailedForum createState() => _DetailedForum(comments, post);
 }
 
 // ------------------------------------------------------------
@@ -33,16 +36,17 @@ var tag_Work = Tag("Work", "");
 
 class _DetailedForum extends State<DetailedForum> {
   List<Forum_Answer> comments;
+  Forum_Post post;
 
-  _DetailedForum(this.comments);
+  _DetailedForum(this.comments, this.post);
   @override
   Widget build(BuildContext context) {
     var questionSection = Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: <Widget>[
-          const Text(
-            "What frameworks are you using?",
+          Text(
+            post.title,
             textScaleFactor: 1.5,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -53,10 +57,10 @@ class _DetailedForum extends State<DetailedForum> {
               children: <Widget>[
                 IconWithText(
                   Icons.person,
-                  "ForumPoster",
+                  post.uid,
                   iconColor: Colors.black,
                 ),
-                Text(tag_FrameWork.tagName + tag_Project.tagName),
+                Text(post.tagNames),
               ],
             ),
           ),
