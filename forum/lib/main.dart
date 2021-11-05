@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/data.dart';
 import 'package:forum/forum/forum.dart';
 
 void main() => runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       title: 'Even Better',
-      home: ForumListPage(),
+      home: ForumListPage(Data([], [], [])),
     );
   }
 }

@@ -85,7 +85,7 @@ class _DetailedForum extends State<DetailedForum> {
               print("add comments");
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => commentForum()),
+                MaterialPageRoute(builder: (context) => commentForum(post)),
               );
             },
             color: Colors.transparent,

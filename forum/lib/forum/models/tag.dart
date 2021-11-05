@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/TagPage.dart';
 import 'package:forum/forum/models/forum_post.dart';
 
 class Tag extends StatelessWidget {
@@ -38,6 +39,12 @@ class Tag extends StatelessWidget {
             TextButton(
               onPressed: () {
                 print(tagName + " pressed");
+                var forward = Tag(name, "");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TagPage(forward, tagged_forum)),
+                );
               },
               child: Text(tagName, style: const TextStyle(color: Colors.black)),
             ),
@@ -52,6 +59,12 @@ class Tag extends StatelessWidget {
             TextButton(
               onPressed: () {
                 print(tagName + " pressed");
+                var forward = Tag(name, "");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TagPage(forward, tagged_forum)),
+                );
               },
               child: Text(tagName, style: const TextStyle(color: Colors.white)),
             ),

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/data.dart';
+import 'package:forum/forum/forum%20copy.dart';
+import 'package:forum/forum/models/forum_answer.dart';
+import 'package:forum/forum/models/forum_post.dart';
 import 'package:forum/forum/models/tag.dart';
 
 class createForum extends StatefulWidget {
+  Data db;
+  createForum(this.db);
   @override
-  _createForumState createState() => _createForumState();
+  _createForumState createState() => _createForumState(db);
 }
 
 class _createForumState extends State<createForum> {
@@ -12,6 +18,8 @@ class _createForumState extends State<createForum> {
   String content = '';
   List<Tag> addtags = [];
   String newTag = '';
+  Data db;
+  _createForumState(this.db);
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +54,11 @@ class _createForumState extends State<createForum> {
                           SizedBox(height: 40.0),
                           TextFormField(
                               decoration: const InputDecoration(
-                                hintText: 'What do you think?',
+                                hintText: 'What do you think? (Optional)',
                               ),
-                              validator: (val) => val!.isEmpty
-                                  ? 'Enter your thoughts'
-                                  : null, //is valid if null
+                              // validator: (val) => val!.isEmpty
+                              //     ? 'Enter your thoughts'
+                              //     : null, //is valid if null
                               onChanged: (val) {
                                 setState(() => content = val);
                               }),
@@ -63,9 +71,9 @@ class _createForumState extends State<createForum> {
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Tag("Framework", "1"),
-                                  Tag("Company", "1"),
-                                  Tag("Project", "1")
+                                  db.tags[0],
+                                  db.tags[1],
+                                  db.tags[2]
                                 ],
                               ),
                               Row(
@@ -73,9 +81,7 @@ class _createForumState extends State<createForum> {
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Tag("OO Design", "1"),
-                                  Tag("Java", "1"),
-                                  Tag("Flutter", "1"),
+                                  db.tags[3],
                                   TextButton(
                                     onPressed: () => showDialog(
                                         context: context,
@@ -159,7 +165,14 @@ class _createForumState extends State<createForum> {
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   print(title);
+                                  var newpost = Forum_Post("morrison jamari",
+                                      "forum6", title, content, [], []);
                                   // TODO: implement submit comment
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ForumListPage2(
+                                              Data([], [], []), newpost)));
                                 }
                               }),
                         ]))))));

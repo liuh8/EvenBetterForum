@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:forum/forum/models/forum_answer.dart';
+import 'package:forum/forum/models/forum_post.dart';
 
 class commentForum extends StatefulWidget {
+  Forum_Post forum;
+  commentForum(this.forum);
   @override
-  _commentForumState createState() => _commentForumState();
+  _commentForumState createState() => _commentForumState(forum);
 }
 
 class _commentForumState extends State<commentForum> {
   final _formKey = GlobalKey<FormState>();
   String text = '';
+  Forum_Post forum;
+  _commentForumState(this.forum);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +49,9 @@ class _commentForumState extends State<commentForum> {
                         if (_formKey.currentState!.validate()) {
                           print(text);
                           // TODO: implement submit comment
+                          forum.add_comment(
+                              Forum_Answer("answer6", "morrison jamari", text));
+                          Navigator.of(context).pop();
                         }
                       }),
                 ]))));
